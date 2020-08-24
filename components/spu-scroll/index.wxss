@@ -1,0 +1,47 @@
+/* components/spu-scroll/index.wxss */
+.container {
+  paddin: 42rpx 0 34rpx 28rpx;
+}
+
+.title {
+  width: 694rpx;
+  height: 90rpx;
+}
+
+.price-unit {
+  font-size: 28rpx !important;
+}
+
+.price-value {
+  font-size: 32rpx !important;
+  font-weight: 800rpx !important;
+}
+
+.spu-container {
+  margin-right: 60rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: ceneter;
+}
+
+.spu-img {
+  width: 160rpx;
+  height: 160rpx;
+  display: block;
+}
+
+.scroll-view {
+  display: flex;
+  flex-direction: row;
+}
+
+.inner {
+  display: flex;
+  flex-direction: row;
+}
+
+.spu-text {
+  font-size: 20rpx;
+  color:#66666;
+  margin-top: 20rpx;
+}
