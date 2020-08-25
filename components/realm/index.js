@@ -19,13 +19,19 @@ Component({
         return;
       }
       const fenceGroup = new FenceGrouo(spu);
-      // fenceGroup.initFences();
-      fenceGroup.initFences1();
+      fenceGroup.initFences();
+      this.bindInitData(fenceGroup);
     },
   },
 
   /**
    * 组件的方法列表
    */
-  methods: {},
+  methods: {
+    bindInitData(fenceGroup) {
+      this.setData({
+        fences: fenceGroup.fences,
+      });
+    },
+  },
 });

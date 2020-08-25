@@ -1,19 +1,32 @@
-class Fence {
-  valueTitles = [];
-  specs;
+import { Cell } from "./cell";
 
+class Fence {
+  cells = [];
+  specs;
+  // 规格名
+  title;
+  // 规格名 ID
+  id;
   constructor(specs) {
     this.specs = specs;
+    this.title = specs[0].key;
+    this.id = specs[0].key_id;
   }
 
   init() {
-    this.specs.forEach((s) => {
-      this.pushValueTitles(s.value);
-    });
+    this._initCells();
   }
-
-  pushValueTitles(title) {
-    this.valueTitles.push(title);
+  _initCells() {
+    this.specs.forEach((s) => {
+      const existed = this.cells.some((c) => {
+        return c.id === s.value_id;
+      });
+      if (existed) {
+        return;
+      }
+      const cell = new Cell(s);
+      this.cells.push(cell);
+    });
   }
 }
 

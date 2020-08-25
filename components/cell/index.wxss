@@ -1,0 +1,47 @@
+/* components/cell/index.wxss */
+.container {
+  box-sizing: border-box;
+  height: 60rpx;
+  padding: 2rpx;
+
+  border: 2rpx solid #333333;
+}
+
+.inner-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+  height: 100%;
+  padding-right: 15rpx;
+  padding-left: 15rpx;
+
+  background-color: #ffffff;
+
+  font-size: 24rpx;
+}
+
+.forbidden {
+  color: #bbbbbb;
+  border: 2rpx dashed #bbbbbb;
+}
+
+.s-outer {
+  color: #ffffff;
+  border: 2rpx solid #157658;
+}
+
+.s-inner {
+  background-color: #157658;
+}
+
+.img {
+  display: flex;
+
+  width: 44rpx;
+  height: 44rpx;
+  margin-right: 10rpx;
+}
+
+.selected {
+}

@@ -1,3 +1,2 @@
 <!-- pages/detail/detail.wxml -->
-<text>pages/detail/detail.wxml</text>
 <s-realm spu="{{spu}}"></s-realm>

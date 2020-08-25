@@ -13,21 +13,6 @@ class FenceGrouo {
   initFences() {
     const matrix = this._createMatrix(this.skuList);
     const fences = [];
-    let currentJ = -1;
-    matrix.forEach((element, i, j) => {
-      if (currentJ !== j) {
-        // 开启一个新列，需要创建一个新的Fence
-        currentJ = j;
-        fences[currentJ] = this._createFence(element);
-      }
-      fences[currentJ].pushValueTitles(element.value);
-    });
-    console.log(fences);
-  }
-
-  initFences1() {
-    const matrix = this._createMatrix(this.skuList);
-    const fences = [];
     const AT = matrix.transpose();
     console.log(AT);
     AT.forEach((r) => {
@@ -35,7 +20,7 @@ class FenceGrouo {
       fence.init();
       fences.push(fence);
     });
-    console.log(fences);
+    this.fences = fences;
   }
 
   _createFence(element) {
