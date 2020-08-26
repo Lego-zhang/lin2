@@ -1,8 +1,8 @@
 <!-- components/cell/index.wxml -->
 <view class="container">
   <view class="inner-container">
-    <text>
+    <view>
       {{cell.title}}
-    </text>
+    </view>
   </view>
 </view>

@@ -1,4 +1,5 @@
 const { FenceGrouo } = require("../models/fence-group");
+const { Judger } = require("../models/judger");
 
 // components/realm/index.js
 Component({
@@ -20,6 +21,8 @@ Component({
       }
       const fenceGroup = new FenceGrouo(spu);
       fenceGroup.initFences();
+      const judger = new Judger(fenceGroup);
+
       this.bindInitData(fenceGroup);
     },
   },

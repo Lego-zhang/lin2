@@ -14,7 +14,6 @@ class FenceGrouo {
     const matrix = this._createMatrix(this.skuList);
     const fences = [];
     const AT = matrix.transpose();
-    console.log(AT);
     AT.forEach((r) => {
       const fence = new Fence(r);
       fence.init();
