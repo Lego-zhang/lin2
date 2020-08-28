@@ -1,0 +1,12 @@
+function statusStyle(status) {
+  if (status === "forbidden") {
+    return { outer: "forbidden", inner: "s-inner" };
+  }
+  if (status === "selected") {
+    return { outer: "s-outer", inner: "s-inner" };
+  }
+}
+
+module.exports = {
+  statusStyle: statusStyle,
+};

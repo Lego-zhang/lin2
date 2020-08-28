@@ -1,6 +1,16 @@
 <!-- components/cell/index.wxml -->
-<view class="container">
-  <view class="inner-container">
+<wxs
+  module="c"
+  src="../../wxs/statusStyle.wxs"
+></wxs>
+
+<view
+  class="container {{c.statusStyle(cell.status).outer}}"
+  bind:tap="onTap"
+>
+  <view
+    class="inner-container {{c.statusStyle(cell.status).inner}}"
+  >
     <view>
       {{cell.title}}
     </view>

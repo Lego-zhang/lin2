@@ -9,6 +9,8 @@
       <s-cell
         cell="{{item}}"
         class="cell"
+        y="{{index}}"
+        x="{{x}}"
       ></s-cell>
     </block>
     <view class="hr"></view>

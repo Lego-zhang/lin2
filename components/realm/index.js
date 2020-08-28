@@ -13,7 +13,9 @@ Component({
   /**
    * 组件的初始数据
    */
-  data: {},
+  data: {
+    judger: Object,
+  },
   observers: {
     spu: function (spu) {
       if (!spu) {
@@ -22,7 +24,7 @@ Component({
       const fenceGroup = new FenceGrouo(spu);
       fenceGroup.initFences();
       const judger = new Judger(fenceGroup);
-
+      this.data.judger = judger;
       this.bindInitData(fenceGroup);
     },
   },
@@ -34,6 +36,18 @@ Component({
     bindInitData(fenceGroup) {
       this.setData({
         fences: fenceGroup.fences,
+      });
+    },
+
+    onCellTap(e) {
+      const cell = e.detail.cell;
+      const x = e.detail.x;
+      const y = e.detail.y;
+
+      const judger = this.data.judger;
+      judger.judge(cell, x, y);
+      this.setData({
+        fences: judger.fenceGroup.fences,
       });
     },
   },

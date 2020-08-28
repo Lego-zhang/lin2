@@ -5,6 +5,8 @@ Component({
    */
   properties: {
     cell: Object,
+    x: Number,
+    y: Number,
   },
 
   /**
@@ -15,5 +17,22 @@ Component({
   /**
    * 组件的方法列表
    */
-  methods: {},
+  methods: {
+    onTap(e) {
+      this.triggerEvent(
+        "celltap",
+        {
+          cell: this.properties.cell,
+          x: this.properties.x,
+          y: this.properties.y,
+        },
+        {
+          // 冒泡
+          bubbles: true,
+          // 跨越组件边界
+          composed: true,
+        }
+      );
+    },
+  },
 });
