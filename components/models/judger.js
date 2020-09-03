@@ -12,8 +12,14 @@ class Judger {
     this._initPathDict();
     this._initSkuPending();
   }
+
+  isSkuInTact() {
+    return this.skuPending.isIntact();
+  }
+
   _initSkuPending() {
-    this.skuPending = new SkuPending();
+    const specsLength = this.fenceGroup.fences.length;
+    this.skuPending = new SkuPending(specsLength);
     const defaultSku = this.fenceGroup.getDefaultSku();
     if (!defaultSku) {
       return;
@@ -47,6 +53,10 @@ class Judger {
         this.fenceGroup.setCellStatusByXY(x, y, CellStatus.FORBIDDEN);
       }
     });
+  }
+  getDeterminateSku() {
+    const code = this.skuPending.getSkuCode();
+    const sku = this.fenceGroup.getSku(code);
   }
   _isInDict(path) {
     return this.pathDict.includes(path);

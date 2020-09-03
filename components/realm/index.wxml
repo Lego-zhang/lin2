@@ -8,7 +8,7 @@
         class="sku-img"
       ></image>
       <view class="sku-description">
-        <!-- <text class="title">{{title}}</text> -->
+        <text class="title">{{title}}</text>
         <view>
           <view class="price-row">
             <l-price
@@ -39,8 +39,20 @@
               仅剩：{{stock}} 件
             </view>
           </view>
-          <view class="sku-pending">
-            <text>请选择：</text>
+          <view
+            class="sku-pending"
+            wx:if="{{!noSpec}}"
+          >
+            <text wx:if="{{!skuIntact }}">
+              请选择：
+            </text>
+            <text wx:if="{{skuIntact}}">
+              已选：
+            </text>
+            <text wx:if="{{!skuIntact}}">
+              待选择规格名
+            </text>
+            <text wx:else>已选择规格值</text>
           </view>
         </view>
       </view>
