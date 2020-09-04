@@ -46,13 +46,13 @@
             <text wx:if="{{!skuIntact }}">
               请选择：
             </text>
-            <text wx:if="{{skuIntact}}">
+            <text wx:else>
               已选：
             </text>
             <text wx:if="{{!skuIntact}}">
-              待选择规格名
+              {{missingKeys}}
             </text>
-            <text wx:else>已选择规格值</text>
+            <text wx:else>{{currentValues}}</text>
           </view>
         </view>
       </view>

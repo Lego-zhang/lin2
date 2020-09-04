@@ -18,7 +18,8 @@ class FenceGrouo {
     return this.skuList.find((s) => s.id === defaultSkuId);
   }
   getSku(skuCode) {
-    const sku = this.spu.sku_list.find((s) => s.code === skuCode);
+    const fullSkuCode = this.spu.id + "$" + skuCode;
+    const sku = this.spu.sku_list.find((s) => s.code === fullSkuCode);
     return sku ? sku : null;
   }
   setCellStatusById(cellId, status) {

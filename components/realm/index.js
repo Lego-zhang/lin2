@@ -74,14 +74,22 @@ Component({
       });
     },
     bindTipData() {
+      console.log(this.data.judger.getCurrentValues() + "sssß");
       this.setData({
-        skuIntact: this.data.judger.isSkuInTact(),
+        skuIntact: this.data.judger.isSkuIntact(),
+        currentValues: this.data.judger.getCurrentValues(),
+        missingKeys: this.data.judger.getMissingKeys(),
       });
     },
     bindFenceGroupData(fenceGroup) {
       this.setData({
         fences: fenceGroup.fences,
       });
+    },
+    noSpec() {
+      const spu = this.properties.spu;
+
+      return Spu.isNoSpec(spu);
     },
     onCellTap(e) {
       const data = e.detail.cell;
@@ -90,10 +98,14 @@ Component({
 
       const cell = new Cell(data.spec);
 
+      cell.status = data.status;
+
       const judger = this.data.judger;
       judger.judge(cell, x, y);
-      const skuIntact = judger.isSkuInTact();
+      const skuIntact = judger.isSkuIntact();
       if (skuIntact) {
+        const currentSku = judger.getDeterminateSku();
+        this.bindSkuData(currentSku);
       }
       this.bindFenceGroupData(judger.fenceGroup);
     },
