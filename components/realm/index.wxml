@@ -1,7 +1,7 @@
 <!-- components/realm/index.wxml -->
 <wxs src="../../wxs/price.wxs" module="p"></wxs>
 <view class="container">
-  <view>
+  <view class="inner-container">
     <view class="sku-preview">
       <image
         src="{{previewImg}}"
@@ -67,7 +67,17 @@
       ></s-fence>
     </block>
     <view class="counter-container">
-      <!-- <l-counter></l-counter> -->
+      <text>购买数量</text>
+      <s-counter
+        bind:lintap="onSelectCount"
+      ></s-counter>
     </view>
   </view>
+</view>
+
+<view wx:if="{{!outStock}}" class="bottom-btn">
+  <text>加入购物车</text>
+</view>
+<view wx:else class="bottom-btn out-stock">
+  <text>暂时缺货</text>
 </view>
