@@ -1,1 +1,138 @@
 /* pages/detail/detail.wxss */
+.top {
+  width: 100%;
+  height: 680rpx;
+}
+
+.tabbar {
+  position: fixed;
+  bottom: 0;
+}
+
+.sku-pending {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+  width: 100%;
+  height: 80rpx;
+  margin: 10rpx 0;
+  padding: 0 30rpx;
+
+  color: #333333;
+  background-color: #ffffff;
+
+  font-size: 28rpx;
+}
+
+.specs > text:first-child {
+  color: #999999;
+
+  font-size: 24rpx;
+}
+
+.specs > text:nth-child(2) {
+  color: #157658;
+
+  font-size: 24rpx;
+}
+
+.explain {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+
+  margin-top: 10rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+
+  background-color: #ffffff;
+}
+
+.detail-img-container {
+  /*margin-bottom: 200rpx;*/
+}
+
+.detail-img {
+  display: flex;
+
+  width: 100%;
+  /*height: 1400rpx;*/
+}
+
+.coupon-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+  width: 100%;
+  height: 88rpx;
+  margin-top: 20rpx;
+  padding: 0 30rpx;
+
+  background-color: #ffffff;
+}
+
+.coupon-left {
+  display: flex;
+  flex-direction: row;
+  /*margin-left:30rpx;*/
+}
+
+.coupon-left > s-coupon-mini:first-child {
+  margin-right: 20rpx;
+}
+
+.coupon-right {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.coupon-right > text {
+  margin-top: -4rpx;
+  margin-right: 20rpx;
+
+  color: #333333;
+
+  font-size: 24rpx;
+}
+
+.spec-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+  width: 100%;
+  height: 80rpx;
+  margin: 10rpx 0;
+  padding: 0 30rpx;
+
+  color: #333333;
+  background-color: #ffffff;
+
+  font-size: 28rpx;
+}
+
+.spec > text:first-child {
+  color: #999999;
+
+  font-size: 24rpx;
+}
+.sku-value-str {
+  color: #157658;
+
+  font-size: 24rpx;
+}
+
+.tabbar {
+  position: fixed;
+  bottom: 0;
+}

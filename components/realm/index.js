@@ -43,6 +43,7 @@ Component({
         noSpec: true,
       });
       this.bindSpuData(spu.sku_list[0]);
+      this.setStockStatus(spu.sku_list[0].stock, this.data.currentSkuCount);
       return;
     },
     processHasSpec(spu) {
@@ -77,7 +78,6 @@ Component({
       });
     },
     bindTipData() {
-      console.log(this.data.judger.getCurrentValues() + "sssß");
       this.setData({
         skuIntact: this.data.judger.isSkuIntact(),
         currentValues: this.data.judger.getCurrentValues(),
@@ -103,7 +103,6 @@ Component({
     onSelectCount(event) {
       const currentCount = event.detail.count;
       this.data.currentSkuCount = currentCount;
-      console.log(currentCount);
       if (this.data.judger.isSkuIntact()) {
         const sku = this.data.judger.getDeterminateSku();
         this.setStockStatus(sku.stock, currentCount);

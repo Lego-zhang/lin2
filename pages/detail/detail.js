@@ -4,7 +4,7 @@ Page({
   /**
    * 页面的初始数据
    */
-  data: { spu: null },
+  data: { spu: null, showRealm: false },
 
   /**
    * 生命周期函数--监听页面加载
@@ -16,7 +16,16 @@ Page({
       spu,
     });
   },
-
+  onAddToCart(e) {
+    this.setData({
+      showRealm: true,
+    });
+  },
+  onBuy(e) {
+    this.setData({
+      showRealm: true,
+    });
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

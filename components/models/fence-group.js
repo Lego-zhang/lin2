@@ -30,7 +30,6 @@ class FenceGrouo {
     });
   }
   setCellStatusByXY(x, y, status) {
-    console.log(this.fences[x]);
     this.fences[x].cells[y].status = status;
   }
   changeCellStatusById() {}

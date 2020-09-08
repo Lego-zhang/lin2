@@ -53,7 +53,6 @@ class Judger {
 
     this.fenceGroup.eachCell((cell, x, y) => {
       const path = this._findPotentialPath(cell, x, y);
-      console.log(path);
       if (!path) {
         return;
       }
