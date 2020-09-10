@@ -11,6 +11,7 @@ Component({
    */
   properties: {
     spu: Object,
+    orderWay: String,
   },
 
   /**

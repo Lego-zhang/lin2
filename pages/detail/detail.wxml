@@ -1,10 +1,29 @@
 <!-- pages/detail/detail.wxml -->
+<view class="">
+  <swiper class="top">
+    <block wx:for="{{spu.spu_img_list}}">
+      <swiper-item>
+        <image
+          class="top"
+          mode="aspectFit"
+          src="{{item.img}}"
+        ></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <s-spu-description
+    spu="{{spu}}"
+  ></s-spu-description>
+</view>
 
 <l-popup
   show="{{showRealm}}"
   content-align="bottom"
 >
-  <s-realm spu="{{spu}}"></s-realm>
+  <s-realm
+    order-way="{{orderWay}}"
+    spu="{{spu}}"
+  ></s-realm>
 </l-popup>
 <s-tabbar
   class="tabbar"

@@ -1,6 +1,6 @@
 <!-- components/realm/index.wxml -->
 <wxs src="../../wxs/price.wxs" module="p"></wxs>
-<view class="container">
+<scroll-view class="container" scroll-y>
   <view class="inner-container">
     <view class="sku-preview">
       <image
@@ -73,10 +73,15 @@
       ></s-counter>
     </view>
   </view>
-</view>
+</scroll-view>
 
 <view wx:if="{{!outStock}}" class="bottom-btn">
-  <text>加入购物车</text>
+  <text wx:if="{{orderWay==='cart'}}">
+    加入购物车
+  </text>
+  <text wx:else>
+    立即购买
+  </text>
 </view>
 <view wx:else class="bottom-btn out-stock">
   <text>暂时缺货</text>

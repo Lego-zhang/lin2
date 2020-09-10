@@ -11,6 +11,12 @@
   <view
     class="inner-container {{c.statusStyle(cell.status).inner}}"
   >
+    <image
+      class="img"
+      src="{{cell.skuImg}}"
+      wx:if="{{cell.skuImg}}"
+      mode="aspectFit"
+    ></image>
     <view>
       {{cell.title}}
     </view>
