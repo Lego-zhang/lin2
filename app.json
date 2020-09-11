@@ -58,6 +58,7 @@
     "l-counter": "/miniprogram_npm/lin-ui/counter/index",
     "l-icon": "/miniprogram_npm/lin-ui/icon/index",
     "l-badge": "/miniprogram_npm/lin-ui/badge/index",
+    "l-button": "/miniprogram_npm/lin-ui/button/index",
     "l-popup": "/miniprogram_npm/lin-ui/popup/index",
     "s-spu-preview": "/components/spu-preview/index",
     "s-counter": "/components/counter/index"
