@@ -1,6 +1,7 @@
 // pages/detail/detail.js
 import { Spu } from "../../model/Spu";
 import { ShoppingWay } from "../../core/enum";
+import { SaleExplain } from "../../model/Sale-explain";
 Page({
   /**
    * 页面的初始数据
@@ -13,8 +14,12 @@ Page({
   onLoad: async function (options) {
     const pid = options.pid;
     const spu = await Spu.getDetail(pid);
+
+    const explain = await SaleExplain.getFixed();
+
     this.setData({
       spu,
+      explain,
     });
   },
   onGoToHome(e) {
@@ -32,6 +37,11 @@ Page({
     this.setData({
       showRealm: true,
       orderWay: ShoppingWay.BUY,
+    });
+  },
+  onSpecChange(e) {
+    this.setData({
+      specs: e.detail,
     });
   },
   /**

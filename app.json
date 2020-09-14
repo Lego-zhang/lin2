@@ -1,13 +1,14 @@
 {
   "pages": [
+    "pages/category/category",
     "pages/home/home",
     "pages/index/index",
     "pages/logs/logs",
     "pages/detail/detail",
     "pages/cart/cart",
-    "pages/category/category",
     "pages/my/my",
-    "components/spu-description/index"
+    "components/spu-description/index",
+    "pages/search/search"
   ],
   "tabBar": {
     "borderStyle": "black",
