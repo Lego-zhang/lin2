@@ -1,9 +1,13 @@
+import { Categories } from "../../model/Categories";
 // pages/category/category.js
+import { getSystemSize, getWindowHeightRpx } from "../../utils/system";
 Page({
   /**
    * 页面的初始数据
    */
-  data: {},
+  data: {
+    defaultRootId: 2,
+  },
   onGotoSearch(event) {
     wx.navigateTo({
       url: `/pages/search/search`,
@@ -12,8 +16,37 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {},
+  onLoad: async function (options) {
+    this.initCategoryData();
+    this.setDynamicSegmentHeight();
+  },
+  async setDynamicSegmentHeight() {
+    const h = (await getWindowHeightRpx()) - 60 - 20 - 2;
 
+    this.setData({
+      segHeight: h,
+    });
+  },
+  getDefaultRoot(roots) {
+    let defaultRoot = roots.find((r) => r.id === this.data.defaultRootId);
+    if (!defaultRoot) {
+      defaultRoot = roots[0];
+    }
+    return defaultRoot;
+  },
+  async initCategoryData() {
+    const categories = new Categories();
+    this.data.categories = categories;
+    await categories.getAll();
+    const roots = categories.getRoots();
+    const defaultRoot = this.getDefaultRoot(roots);
+    const currentSubs = categories.getSbus(defaultRoot.id);
+    this.setData({
+      roots,
+      currentSubs,
+      currentBannerImg: defaultRoot.img,
+    });
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

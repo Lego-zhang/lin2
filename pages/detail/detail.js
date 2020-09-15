@@ -2,6 +2,7 @@
 import { Spu } from "../../model/Spu";
 import { ShoppingWay } from "../../core/enum";
 import { SaleExplain } from "../../model/Sale-explain";
+import { getWindowHeightRpx } from "../../utils/system";
 Page({
   /**
    * 页面的初始数据
@@ -16,10 +17,14 @@ Page({
     const spu = await Spu.getDetail(pid);
 
     const explain = await SaleExplain.getFixed();
+    const windowHeight = await getWindowHeightRpx();
+    const h = windowHeight - 100;
+    console.log(h);
 
     this.setData({
       spu,
       explain,
+      h,
     });
   },
   onGoToHome(e) {

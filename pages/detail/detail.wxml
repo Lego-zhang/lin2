@@ -1,5 +1,9 @@
 <!-- pages/detail/detail.wxml -->
-<view class="">
+<scroll-view
+  class=""
+  style="height:{{h}}rpx;"
+  scroll-y="{{true}}"
+>
   <swiper class="top">
     <block wx:for="{{spu.spu_img_list}}">
       <swiper-item>
@@ -54,7 +58,7 @@
       ></image>
     </block>
   </view>
-</view>
+</scroll-view>
 
 <l-popup
   show="{{showRealm}}"

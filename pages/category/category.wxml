@@ -15,7 +15,23 @@
     </l-button>
   </view>
   <view class="main">
-    <view></view>
-    <view></view>
+    <l-segment
+      placement="left"
+      height="{{segHeight}}"
+      item-height="90"
+      even="{{false}}"
+      l-active-class="segment-item-active"
+      l-inactive-class="segment-item"
+      l-line-class="l-seg-line"
+      active-key="{{defaultRootId}}"
+    >
+      <block wx:for="{{roots}}" wx:key="index">
+        <l-segment-item
+          key="{{item.id}}"
+          tab="{{item.name}}"
+        ></l-segment-item>
+      </block>
+    </l-segment>
+    <view class="right"></view>
   </view>
 </view>
