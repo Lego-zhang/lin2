@@ -14,9 +14,12 @@ class Categories {
   getRoots() {
     return this.roots;
   }
-
-  getSbus(rootId) {
+  getRoot(rootId) {
     return this.roots.find((r) => r.id == rootId);
+  }
+
+  getSbus(parentId) {
+    return this.subs.filter((sub) => sub.parent_id == parentId);
   }
 }
 export { Categories };

@@ -27,6 +27,17 @@ Page({
       segHeight: h,
     });
   },
+  onSegChange(evnet) {
+    const rootId = evnet.detail.activeKey;
+    console.log(rootId);
+    const currentSubs = this.data.categories.getSbus(rootId);
+    const currentRoot = this.data.categories.getRoot(rootId);
+
+    this.setData({
+      currentSubs,
+      currentBannerImg: currentRoot.img,
+    });
+  },
   getDefaultRoot(roots) {
     let defaultRoot = roots.find((r) => r.id === this.data.defaultRootId);
     if (!defaultRoot) {
@@ -45,6 +56,13 @@ Page({
       roots,
       currentSubs,
       currentBannerImg: defaultRoot.img,
+    });
+  },
+  onJumpToSpuList(event) {
+    const cid = event.detail.cid;
+
+    wx.navigateTo({
+      url: `/pages/spu-list/spu-list?cid=${cid}&type=${SpuListType.SUB_CATEGORY}`,
     });
   },
   /**

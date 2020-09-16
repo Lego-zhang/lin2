@@ -8,7 +8,8 @@
     "pages/cart/cart",
     "pages/my/my",
     "components/spu-description/index",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/spu-list/spu-list"
   ],
   "tabBar": {
     "borderStyle": "black",
