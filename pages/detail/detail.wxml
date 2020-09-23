@@ -68,6 +68,7 @@
     order-way="{{orderWay}}"
     spu="{{spu}}"
     bind:specchange="onSpecChange"
+    bind:shopping="onShopping"
   ></s-realm>
 </l-popup>
 <s-tabbar
