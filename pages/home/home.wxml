@@ -11,7 +11,7 @@
     >
       <block
         wx:for="{{bannerB.items}}"
-        wx:key="*this"
+        wx:key="index"
       >
         <swiper-item>
           <image

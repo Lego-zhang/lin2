@@ -111,14 +111,15 @@ Component({
 
       return Spu.isNoSpec(spu);
     },
-    setStockStatus(tock, currentCount) {
-      this.setData({ outStock: this.isOutOfStock(tock, currentCount) });
+    setStockStatus(stock, currentCount) {
+      this.setData({ outStock: this.isOutOfStock(stock, currentCount) });
     },
     isOutOfStock(stock, currentCount) {
       return stock < currentCount;
     },
     onSelectCount(event) {
       const currentCount = event.detail.count;
+      console.log(currentCount);
       this.data.currentSkuCount = currentCount;
 
       if (this.noSpec()) {
@@ -153,7 +154,6 @@ Component({
     },
     onBuyOrCart(event) {
       if (Spu.isNoSpec(this.properties.spu)) {
-        console.log(1);
         this.shoppingNoSpec();
       } else {
         this.shoppingVarious();
@@ -183,7 +183,7 @@ Component({
         orderWay: this.properties.orderWay,
         spuId: this.properties.spu.id,
         sku,
-        skuCount: this.data.currentCount,
+        skuCount: this.data.currentSkuCount,
       });
     },
   },

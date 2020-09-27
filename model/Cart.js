@@ -13,6 +13,17 @@ class Cart {
     Cart.instance = this;
     return this;
   }
+  getAllCartItemFromLocal() {
+    return this._getCartData();
+  }
+
+  isEmpty() {
+    const cartData = this._getCartData();
+    return cartData.items.length === 0;
+  }
+  getCartItemCount() {
+    return this._getCartData().items.length;
+  }
 
   addItem(newItem) {
     if (this.beyondMaxCartItemCount()) {
@@ -41,10 +52,11 @@ class Cart {
     wx.setStorageSync(Cart.STORAGE_KEY, this._cartData);
   }
 
-  _pushItem(item) {
+  _pushItem(newItem) {
     const cartData = this._getCartData();
 
     const oldItem = this.findEqualItem(newItem.skuId);
+    console.log(oldItem);
 
     if (!oldItem) {
       cartData.items.unshift(newItem);
@@ -56,7 +68,7 @@ class Cart {
   findEqualItem(skuId) {
     let oldItem = null;
     const items = this._getCartData().items;
-    for (let i = 0; i < items.lenght; i++) {
+    for (let i = 0; i < items.length; i++) {
       if (this._isEqualItem(items[i], skuId)) {
         oldItem = items[i];
         break;
@@ -73,7 +85,7 @@ class Cart {
     this._plusCount(oldItem, newItem.count);
   }
 
-  _plusCount() {
+  _plusCount(item, count) {
     item.count += count;
     if (item.count >= Cart.SKU_MAX_COUNT) {
       item.count = Cart.SKU_MAX_COUNT;

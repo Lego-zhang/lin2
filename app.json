@@ -1,12 +1,12 @@
 {
   "pages": [
+    "pages/cart/cart",
     "pages/search/search",
     "pages/home/home",
     "pages/category/category",
     "pages/index/index",
     "pages/logs/logs",
     "pages/detail/detail",
-    "pages/cart/cart",
     "pages/my/my",
     "components/spu-description/index",
     "pages/spu-list/spu-list"
@@ -67,6 +67,7 @@
     "l-search-bar": "/miniprogram_npm/lin-ui/search-bar/index",
     "l-loading": "/miniprogram_npm/lin-ui/loading/index",
     "s-spu-preview": "/components/spu-preview/index",
-    "s-counter": "/components/counter/index"
+    "s-counter": "/components/counter/index",
+    "s-empty": "/components/empty/index"
   }
 }

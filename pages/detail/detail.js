@@ -3,11 +3,13 @@ import { Spu } from "../../model/Spu";
 import { ShoppingWay } from "../../core/enum";
 import { SaleExplain } from "../../model/Sale-explain";
 import { getWindowHeightRpx } from "../../utils/system";
+import { Cart } from "../../model/Cart";
+import { CartItem } from "../../model/Cart-item";
 Page({
   /**
    * 页面的初始数据
    */
-  data: { spu: null, showRealm: false },
+  data: { spu: null, showRealm: false, cartItemCount: 0 },
 
   /**
    * 生命周期函数--监听页面加载
@@ -26,6 +28,7 @@ Page({
       explain,
       h,
     });
+    this.updateCartItemCount();
   },
   onGoToHome(e) {
     wx.switchTab({
@@ -50,7 +53,24 @@ Page({
     });
   },
   onShopping(event) {
-    console.log(event);
+    const chosenSku = event.detail.sku;
+    const skuCount = event.detail.skuCount;
+    console.log(skuCount);
+    if (event.detail.orderWay === ShoppingWay.CART) {
+      const cart = new Cart();
+      const cartItem = new CartItem(chosenSku, skuCount);
+      cart.addItem(cartItem);
+      this.updateCartItemCount();
+    }
+  },
+  updateCartItemCount() {
+    const cart = new Cart();
+    let cartItemCount = cart.getCartItemCount();
+    console.log(cartItemCount);
+    this.setData({
+      cartItemCount,
+      showRealm: false,
+    });
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
