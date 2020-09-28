@@ -1,0 +1,12 @@
+<!--components/checkbox/index.wxml-->
+<view
+  bind:tap="onCheck"
+  class="container {{checked?'bg-checked':'bg-unchecked'}}"
+>
+  <l-icon
+    wx:if="{{checked?true:false}}"
+    name="check"
+    size="28"
+    l-class="sleeve"
+  ></l-icon>
+</view>

@@ -16,6 +16,13 @@ class Cart {
   getAllCartItemFromLocal() {
     return this._getCartData();
   }
+  static isSoldOut(item) {
+    return item.sku.stock === 0;
+  }
+
+  static isOnline(item) {
+    return item.sku.online;
+  }
 
   isEmpty() {
     const cartData = this._getCartData();

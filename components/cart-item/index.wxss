@@ -1,1 +1,173 @@
 /* components/cart-item/index.wxss */
+.container {
+  display: flex;
+  flex-direction: row;
+
+  box-sizing: border-box;
+  width: 100%;
+  height: 220rpx;
+  padding: 30rpx;
+
+  border-top: 2rpx solid #f3f3f3;
+}
+.checkbox {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+
+  margin-right: 30rpx;
+  /*position: absolute;*/
+}
+.left {
+  width: 100%;
+  height: 100%;
+}
+
+.sku-container {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: row;
+
+  height: 160rpx;
+  /*position: relative;*/
+}
+
+.image-container {
+  position: relative;
+
+  width: 160rpx;
+  height: 160rpx;
+  margin-right: 20rpx;
+}
+
+.image-sold-out {
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  opacity: 0.5;
+  color: #ffffff;
+  background: #157658;
+}
+
+.image-stock-pinch {
+  position: absolute;
+  bottom: 0;
+
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+
+  width: 100%;
+  height: 30rpx;
+
+  opacity: 0.7;
+  color: #ffffff;
+  border-radius: 4rpx;
+  background-color: #157658;
+
+  font-size: 22rpx;
+}
+
+.image-stock-pinch text {
+  letter-spacing: 4rpx;
+}
+
+.right {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.description-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+  margin-bottom: 6rpx;
+
+  line-height: 28rpx;
+}
+
+.discount-tag {
+  flex-wrap: nowrap !important;
+
+  width: 36rpx !important;
+  margin-right: 16rpx;
+  padding-right: 6rpx;
+  padding-left: 6rpx;
+
+  font-size: 18rpx;
+}
+
+.title {
+  color: #333333;
+
+  font-size: 26rpx;
+  font-weight: 400;
+  line-height: 40rpx;
+}
+
+.spec {
+  line-height: 20rpx;
+}
+
+.spec text {
+  display: inline-flex;
+  align-items: center;
+  flex-direction: row;
+
+  height: 36rpx;
+  padding-right: 10rpx;
+  padding-left: 10rpx;
+
+  color: #999999;
+  background-color: #f3f3f3;
+
+  font-size: 20rpx;
+}
+
+.price-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.slide {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+
+  width: 200rpx;
+  height: 220rpx;
+
+  color: #ffffff;
+  background-color: #9e2731;
+}
+
+.disabled {
+  opacity: 0.5;
+}
+
+.sold-out {
+  position: absolute;
+
+  width: 620rpx;
+  height: 160rpx;
+}
