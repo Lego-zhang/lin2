@@ -37,6 +37,8 @@ Component({
     discount: Boolean,
     soldOut: Boolean,
     online: Boolean,
+    stock: Cart.SKU_MAX_COUNT,
+    skuCount: 1,
   },
 
   /**

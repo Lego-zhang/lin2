@@ -19,7 +19,11 @@ Component({
       value: Cart.SKU_MIN_COUNT,
     },
   },
-
+  observers: {
+    "count,min,max": function (count, min, max) {
+      console.log(count, min, max);
+    },
+  },
   /**
    * 组件的初始数据
    */
