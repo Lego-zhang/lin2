@@ -44,5 +44,17 @@ Component({
   /**
    * 组件的方法列表
    */
-  methods: {},
+  methods: {
+    onDelete() {
+      const skuId = this.properties.cartItem.sku.id;
+      const cart = new Cart();
+      cart.removeItem(skuId);
+      this.setData({
+        cartItem: null,
+      });
+      this.triggerEvent("itemdelete", {
+        skuId,
+      });
+    },
+  },
 });
