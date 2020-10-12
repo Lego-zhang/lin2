@@ -16,6 +16,43 @@ class Cart {
   getAllCartItemFromLocal() {
     return this._getCartData();
   }
+
+  getCheckedItems() {
+    const cartItems = this._getCartData().items;
+    const checkedCartItems = [];
+    cartItems.forEach((item) => {
+      if (item.checked) {
+        checkedCartItems.push(item);
+      }
+    });
+    return checkedCartItems;
+  }
+
+  checkItem(skuId) {
+    const oldItem = this.findEqualItem(skuId);
+    oldItem.checked = !oldItem.checked;
+    this._refreshStorage();
+  }
+
+  isAllChecked() {
+    let allChecked = true;
+    const cartItems = this._getCartData().items;
+    for (let item of cartItems) {
+      if (!item.checked) {
+        allChecked = false;
+        break;
+      }
+    }
+    return allChecked;
+  }
+  checkAll(checked) {
+    const cartData = this._getCartData();
+    cartData.items.forEach((item) => {
+      item.checked = checked;
+    });
+    this._refreshStorage();
+  }
+
   static isSoldOut(item) {
     return item.sku.stock === 0;
   }

@@ -11,7 +11,7 @@
       <s-checkbox
         bind:check="checkedItem"
         checked="{{cartItem.checked}}"
-      ></s-checkbox>
+      ></s-checkbox> 
     </view>
 
     <view class="sku-container">

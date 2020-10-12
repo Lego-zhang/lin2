@@ -1,6 +1,6 @@
 const { Cart } = require("../../model/Cart");
 const { parseSpecValue } = require("../../utils/sku");
-
+const cart = new Cart();
 // components/cart-item/index.js
 Component({
   /**
@@ -46,8 +46,8 @@ Component({
    */
   methods: {
     onDelete() {
-      const skuId = this.properties.cartItem.sku.id;
-      const cart = new Cart();
+      const skuId = this.properties.cartItem.skuId;
+
       cart.removeItem(skuId);
       this.setData({
         cartItem: null,
@@ -55,6 +55,12 @@ Component({
       this.triggerEvent("itemdelete", {
         skuId,
       });
+    },
+    checkedItem(event) {
+      const checked = event.detail.checked;
+      cart.checkItem(this.properties.cartItem.skuId);
+      this.properties.cartItem.checked = checked;
+      this.triggerEvent("itemcheck", {});
     },
   },
 });
