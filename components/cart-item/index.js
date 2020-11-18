@@ -62,5 +62,11 @@ Component({
       this.properties.cartItem.checked = checked;
       this.triggerEvent("itemcheck", {});
     },
+    onSelectCount(event) {
+      let newCount = event.detail.count;
+      console.log(newCount);
+      cart.replaceItemCount(this.properties.cartItem.skuId, newCount);
+      this.triggerEvent("countfloat");
+    },
   },
 });

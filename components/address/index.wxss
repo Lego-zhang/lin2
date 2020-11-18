@@ -1,0 +1,86 @@
+/* components/address/index.wxss */
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+  width: 750rpx;
+  min-height: 176rpx;
+  padding-top: 40rpx;
+
+  background-color: #f6fbf9;
+}
+
+.address-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+  width: 100%;
+  padding-right: 20rpx;
+  padding-left: 30rpx;
+}
+
+.address-inner {
+  display: flex;
+  flex-direction: column;
+
+  width: 620rpx;
+}
+
+.base-info {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+  color: #333333;
+
+  font-size: 28rpx;
+}
+
+.base-info l-icon {
+  margin-right: 30rpx;
+}
+
+/*.name{*/
+/*    margin-right: 30rpx;*/
+/*}*/
+
+.base-info > text:nth-child(2) {
+  margin-right: 30rpx;
+}
+.address-info {
+  margin-top: 10rpx;
+  padding-left: 60rpx;
+
+  color: #666666;
+
+  font-size: 28rpx;
+}
+
+.sleeve {
+  color: #157658 !important;
+
+  font-family: sleeve !important;
+  font-size: 36rpx;
+  font-style: normal;
+}
+
+.bottom-img {
+  /*bottom: 0;*/
+  width: 750rpx;
+  height: 8rpx;
+  margin-top: 30rpx;
+}
+
+.btn {
+  color: #157658 !important;
+  border-color: #157658 !important;
+}
+
+.address-container {
+}

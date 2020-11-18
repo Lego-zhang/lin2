@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/order/order",
     "pages/cart/cart",
     "pages/search/search",
     "pages/home/home",
@@ -76,6 +77,8 @@
     "s-spu-preview-r": "/components/spu-preview-r/index",
     "l-dialog": "/miniprogram_npm/lin-ui/dialog/index",
     "l-list": "/miniprogram_npm/lin-ui/list/index",
-    "s-empty": "/components/empty/index"
+    "s-empty": "/components/empty/index",
+    "s-address": "/components/address/index",
+    "s-order-sku-item": "/components/order-sku-item/index"
   }
 }

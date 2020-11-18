@@ -1,3 +1,5 @@
+import { Sku } from "./Sku";
+
 class Cart {
   static SKU_MIN_COUNT = 1;
   static SKU_MAX_COUNT = 77;
@@ -15,6 +17,61 @@ class Cart {
   }
   getAllCartItemFromLocal() {
     return this._getCartData();
+  }
+  async getAllSkuFromServer() {
+    const cartData = this._getCartData();
+    if (cartData.items.length === 0) {
+      return null;
+    }
+    const skuIds = this.getSkuIds();
+    const serverData = await Sku.getSkusByIds(skuIds);
+    this._refreshByServerData(serverData);
+    this._refreshStorage();
+    return this._getCartData();
+  }
+  getSkuIds() {
+    const cartData = this._getCartData();
+    if (cartData.items.length === 0) {
+      return [];
+    }
+    return cartData.items.map((item) => item.skuId);
+  }
+
+  _refreshByServerData(serverData) {
+    const cartData = this._getCartData();
+    cartData.items.forEach((item) => {
+      this._setLatestCartItem(item, serverData);
+    });
+  }
+  _setLatestCartItem(item, serverData) {
+    let removed = true;
+    for (let sku of serverData) {
+      if (sku.id === item.skuId) {
+        removed = false;
+        item.sku = sku;
+        break;
+      }
+    }
+    if (removed) {
+      item.sku.online = false;
+    }
+  }
+
+  replaceItemCount(skuId, newCount) {
+    const oldItem = this.findEqualItem(skuId);
+    if (!oldItem) {
+      console.error("异常情况，更新CartItem中的数量不应当找不到相应数据");
+      return;
+    }
+    if (newCount < 1) {
+      console.error("异常情况，CartItem的Count不可能小于1");
+      return;
+    }
+    oldItem.count = newCount;
+    if (oldItem.count >= Cart.SKU_MAX_COUNT) {
+      oldItem.count = Cart.SKU_MAX_COUNT;
+    }
+    this._refreshStorage();
   }
 
   getCheckedItems() {

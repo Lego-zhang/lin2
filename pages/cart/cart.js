@@ -17,7 +17,12 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {},
+  onLoad: async function (options) {
+    const cartData = await cart.getAllSkuFromServer();
+    this.setData({
+      cartItems: cartData.items,
+    });
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -42,15 +47,20 @@ Page({
   },
   onDeleteItem() {
     this.isAllChecked();
+    this.refreshCartData();
   },
   onSingleCheck() {
     this.isAllChecked();
+    this.refreshCartData();
   },
   refreshCartData() {
     const checkedItems = cart.getCheckedItems();
     const calculator = new Calculator(checkedItems);
     calculator.calc();
     this.setCalcData(calculator);
+  },
+  onCountFloat(event) {
+    this.refreshCartData();
   },
   setCalcData(calculator) {
     const totalPrice = calculator.getTotalPrice();
@@ -73,6 +83,7 @@ Page({
     this.setData({
       cartItems: this.data.cartItems,
     });
+    this.refreshCartData();
   },
   empty() {
     this.setData({
@@ -90,6 +101,17 @@ Page({
     wx.showTabBarRedDot({
       index: 2,
     });
+  },
+  onSettle(event) {
+    if (this.data.totalSkuCount <= 0) {
+      return;
+    }
+    wx.navigateTo({
+      url: `/pages/order/order`,
+    });
+    // wx.navigateTo({
+    //   url: `/pages/order/order?way=${ShoppingWay.CART}`,
+    // });
   },
 
   /**

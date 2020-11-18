@@ -47,3 +47,4 @@
     <text>结算 ( {{totalSkuCount}} )</text>
   </view>
 </view>
+<view style="height:100rpx"></view>

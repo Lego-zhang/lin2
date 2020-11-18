@@ -1,0 +1,92 @@
+/* components/order-sku-item/index.wxss */
+.container {
+  display: flex;
+  flex-direction: row;
+
+  box-sizing: border-box;
+  width: 690rpx;
+  height: 160rpx;
+  padding: 20rpx;
+
+  color: #333333;
+  box-shadow: 0px 0px 8px 0px rgba(221, 221, 221, 0.5);
+  /*border-bottom: 1px solid #f7f7f7;*/
+}
+
+.hidden-text {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+
+  -webkit-line-clamp: 2;
+}
+
+.left {
+  display: flex;
+  flex: 0 0 auto;
+
+  width: 120rpx;
+  height: 100%;
+  margin-right: 20rpx;
+}
+
+.middle {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+}
+
+.title {
+  font-size: 24rpx;
+}
+
+.specs-container {
+  /*display: flex;*/
+  /*overflow: hidden;*/
+  /*text-overflow: ellipsis;*/
+  /*white-space: nowrap;*/
+}
+
+.specs {
+  display: inline-flex;
+  align-items: center;
+
+  max-width: 400rpx;
+  height: 36rpx;
+  padding-right: 10rpx;
+  padding-left: 10rpx;
+
+  background-color: #f3f3f3;
+}
+
+.specs > text {
+  overflow: hidden;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  color: #999999;
+
+  font-size: 20rpx;
+}
+
+.right {
+  display: flex;
+  align-items: flex-end;
+  flex: 0 0 auto;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  width: 120rpx;
+  height: 100%;
+  /*background-color: #3683d6;*/
+
+  font-size: 24rpx;
+}
+
+.right > text {
+  color: #999999;
+}
